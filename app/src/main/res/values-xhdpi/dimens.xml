@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="deckTitleSize">13.5sp</dimen>
+    <dimen name="fragmentTitleSize">20sp</dimen>
+    <dimen name="heightViewPager">500sp</dimen>
+
+
+</resources>

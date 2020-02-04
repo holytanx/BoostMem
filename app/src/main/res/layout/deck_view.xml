@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/deckTitleSize"
+    android:paddingTop="@dimen/deckTitleSize"
+    android:paddingBottom="@dimen/deckTitleSize">
+
+
+    <TextView
+        android:id="@+id/deckTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Main Title"
+        android:textSize="@dimen/deckTitleSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/deckCategory"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <TextView
+        android:id="@+id/deckCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/deckTitle"
+        android:text="@string/category"
+        android:textSize="@dimen/deckTitleSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/deckTitle"
+        app:layout_constraintTop_toBottomOf="@+id/deckTitle" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/purpleButton"
+        android:onClick="selectGames"
+        android:text="@string/review"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/deckTitleSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

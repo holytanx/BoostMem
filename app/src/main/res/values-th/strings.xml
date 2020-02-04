@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BoostMem</string>
+    <string name="home">หน้าแรก</string>
+    <string name="statistics">สถิติ</string>
+    <string name="notifications">การแจ้งเตือน</string>
+    <string name="settings">ตั้งค่า</string>
+    <string name="review">ทบทวน</string>
+    <string name="category">ประเภท: </string>
+
+    <string name="gameType1">เล่นคนเดียว</string>
+    <string name="gameType2">เล่นหลายคน</string>
+
+
+    <string name="daily">ทุกวัน</string>
+    <string name="mon">จ.</string>
+    <string name="tue">อ.</string>
+    <string name="wed">พ.</string>
+    <string name="thu">พ.</string>
+    <string name="fri">ศ.</string>
+    <string name="sat">ส.</string>
+    <string name="sun">อา.</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

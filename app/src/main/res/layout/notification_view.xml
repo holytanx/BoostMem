@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:id="@+id/notiTitle"
+            />
+        <Switch
+            android:layout_alignParentEnd="true"
+            android:id="@+id/isActive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:switchMinWidth="56dp"
+            android:checked="true"
+            android:textOff="OFF"
+            android:textOn="ON"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/isActive"
+            android:id="@+id/line"
+            android:background="@android:color/darker_gray"/>
+
+        <ListView
+            android:id="@+id/timeListView"
+            android:layout_below="@id/notiTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ></ListView>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
