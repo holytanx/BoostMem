@@ -1,6 +1,6 @@
 package com.example.boostmem.DataExample
 
-import com.example.boostmem.models.Game
+import com.example.boostmem.Database.Models.Game
 class DataExample1 {
 
     companion object {
@@ -8,16 +8,13 @@ class DataExample1 {
             val singleGames = ArrayList<Game>()
 
             singleGames.add(
-                Game("Basic Review","ทบทวนพื้นฐาน")
+                Game(1,"Basic Review","ทบทวนพื้นฐาน")
             )
             singleGames.add(
-                Game("Audio Review","ทบทวนฟังเสียง")
+                Game(2,"Matching Game","เกมจับคู่")
             )
             singleGames.add(
-                Game("Matching Game","เกมจับคู่")
-            )
-            singleGames.add(
-                Game("Select Options","เกมปรนัย")
+                Game(3,"Quiz","เกมปรนัย")
             )
             return singleGames
         }

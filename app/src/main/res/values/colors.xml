@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#F3F3F3</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#455A64</color>
+    <color name="colorPrimaryDark">#263238</color>
+<!--    Nav bar-->
+    <color name="colorAccent">#5A66D7</color>
+    <color name="button">#C19C93</color>
+    <color name="violetColor">#9c27b0</color>
+    <color name="greyButton">#737373</color>
+    <color name="white">#ffffff</color>
+    <color name="colorSuccess">#169c18</color>
+    <color name="colorWarning">#fdd13a</color>
+    <color name="yellowButton">#F9AA33</color>
+    <color name="colorCancel">#da1e28</color>
+    <color name="colorNavBar">#344955</color>
     <color name="titleColor">#000000</color>
-    <color name="purpleButton">#550a8a</color>
+    <color name="colorBlue">#4b76dd</color>
+    <color name="greenButton">#c2cb81</color>
+    <color name="redButton">#E87A54</color>
+    <color name="backgroundLabel">#A48F76</color>
+    <color name="blueButton">#84a9cd</color>
+    <color name="colorBlack">#000000</color>
 
+
+    <color name="dialogAddButt">#9bba74</color>
+    <color name="dialogCancelButt">#d68162</color>
+
+    <color name="colorSkipFlip">#b0968a</color>
+    <color name="colorStroke">#eb8d48</color>
 </resources>

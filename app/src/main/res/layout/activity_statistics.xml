@@ -6,6 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".Statistics">
 
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/statistics_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/statistics_tabs"
+        android:layout_width="match_parent"
+        style="@style/Widget.MaterialComponents.TabLayout.Colored"
+        android:backgroundTint="@color/backgroundLabel"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.tabs.TabItem
+            android:icon="@drawable/ic_pie_chart"
+            android:text="@string/overall" />
+
+        <com.google.android.material.tabs.TabItem
+            android:icon="@drawable/ic_font_download"
+            android:text="@string/grades" />
+
+    </com.google.android.material.tabs.TabLayout>
+        </androidx.viewpager.widget.ViewPager>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"

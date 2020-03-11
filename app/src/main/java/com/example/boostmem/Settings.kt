@@ -3,6 +3,7 @@ package com.example.boostmem
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.boostmem.Notification.Notifications
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class Settings : AppCompatActivity() {

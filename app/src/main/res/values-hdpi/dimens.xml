@@ -4,4 +4,7 @@
     <dimen name="buttonSize">40sp</dimen>
     <dimen name="fragmentTitleSize">20sp</dimen>
     <dimen name="heightViewPager">375sp</dimen>
+    <dimen name="labelSize">18dp</dimen>
+    <dimen name="subLabelSize">15dp</dimen>
+    <dimen name="marginStartEndDefault">30dp</dimen>
 </resources>

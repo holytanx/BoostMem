@@ -1,6 +1,6 @@
 package com.example.boostmem.DataExample
 
-import com.example.boostmem.models.Game
+import com.example.boostmem.Database.Models.Game
 
 class DataExample2 {
 
@@ -9,7 +9,7 @@ class DataExample2 {
             val multiGames = ArrayList<Game>()
 
             multiGames.add(
-                Game("YenCha Game","เกมเย็นชา")
+                Game(4,"YenCha Game","เกมเย็นชา")
             )
             return multiGames
         }

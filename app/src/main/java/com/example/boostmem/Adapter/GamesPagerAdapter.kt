@@ -2,11 +2,7 @@ package com.example.boostmem.Adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
 import androidx.fragment.app.FragmentStatePagerAdapter
-import androidx.viewpager.widget.PagerAdapter
-import com.example.boostmem.MultiFragment
-import com.example.boostmem.SingleFragment
 
 class GamesPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager){
         private val fragmentList : MutableList<Fragment> = ArrayList()

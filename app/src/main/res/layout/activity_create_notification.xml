@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Notification.CreateNotification">
+
+    <TextView
+        android:id="@+id/createNotification_textview"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/backgroundLabel"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/titleCreate"
+
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/deckName_TextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/chooseDeck_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/chooseDeck"
+        android:textColor="@color/titleColor"
+        android:textSize="@dimen/labelSize"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createNotification_textview" />
+
+    <Spinner
+        android:id="@+id/deck_time_Spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseDeck_TextView" />
+
+
+    <TextView
+        android:id="@+id/hr_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:text="12"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/labelSize"
+        app:layout_constraintEnd_toStartOf="@+id/colon_textview"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deck_time_Spinner" />
+
+    <TextView
+        android:id="@+id/colon_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:text=":"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/labelSize"
+        app:layout_constraintEnd_toStartOf="@+id/min_textview"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/hr_textview"
+        app:layout_constraintTop_toBottomOf="@+id/deck_time_Spinner" />
+
+    <TextView
+        android:id="@+id/min_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="30"
+
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/labelSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/colon_textview"
+        app:layout_constraintTop_toBottomOf="@+id/deck_time_Spinner" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/settime_button"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Set time"
+        android:textColor="#d7897e"
+        app:icon="@drawable/ic_add_alarm_white"
+        app:iconTint="#d7897e"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minute" />
+
+    <Button
+        android:id="@+id/addNotification_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/greenButton"
+        android:text="@string/create"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_Spinner"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/redButton"
+        android:text="@string/cancel"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/addNotification_button"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
+        android:text="@string/hr"
+        android:textSize="@dimen/subLabelSize"
+        app:layout_constraintEnd_toStartOf="@+id/minute"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hr_textview" />
+
+    <TextView
+        android:id="@+id/minute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/min"
+
+        android:textSize="@dimen/subLabelSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/hour"
+        app:layout_constraintTop_toBottomOf="@+id/min_textview" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top" />
+
+
+    <Button
+        android:id="@+id/mon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="changeColor"
+
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_button_day"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/m"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toStartOf="@+id/tue"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settime_button" />
+
+    <Button
+        android:id="@+id/tue"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="changeColor"
+
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_button_day"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/t"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toStartOf="@+id/wed"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/mon"
+        app:layout_constraintTop_toBottomOf="@+id/settime_button" />
+
+    <Button
+        android:id="@+id/wed"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="changeColor"
+
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_button_day"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/w"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toStartOf="@+id/thu"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tue"
+        app:layout_constraintTop_toBottomOf="@+id/settime_button" />
+
+    <Button
+        android:id="@+id/thu"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="changeColor"
+
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_button_day"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/tu"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toStartOf="@+id/fri"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/wed"
+        app:layout_constraintTop_toBottomOf="@+id/settime_button" />
+
+    <Button
+        android:id="@+id/fri"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="changeColor"
+
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_button_day"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/f"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toStartOf="@+id/sat"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/thu"
+        app:layout_constraintTop_toBottomOf="@+id/settime_button" />
+
+    <Button
+        android:id="@+id/sat"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="changeColor"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_button_day"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/s"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toStartOf="@+id/sun"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fri"
+        app:layout_constraintTop_toBottomOf="@+id/settime_button" />
+
+    <Button
+        android:id="@+id/sun"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="changeColor"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_button_day"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/su"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/sat"
+        app:layout_constraintTop_toBottomOf="@+id/settime_button" />
+</androidx.constraintlayout.widget.ConstraintLayout>

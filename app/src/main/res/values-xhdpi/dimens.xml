@@ -3,6 +3,9 @@
     <dimen name="deckTitleSize">13.5sp</dimen>
     <dimen name="fragmentTitleSize">20sp</dimen>
     <dimen name="heightViewPager">500sp</dimen>
+    <dimen name="labelSize">18dp</dimen>
+    <dimen name="marginStartEndDefault">30dp</dimen>
+    <dimen name="subLabelSize">15dp</dimen>
 
 
 </resources>

@@ -2,8 +2,14 @@
 <resources>
     <string name="app_name">BoostMem</string>
     <string name="home">หน้าแรก</string>
+    <string name="game">หน้าแรก > เกม</string>
+    <string name="cardManagement">จัดการไพ่ในสำรับ</string>
+    <string name="cardCreate">จัดการไพ่ในสำรับ > สร้างไพ่</string>
+
     <string name="statistics">สถิติ</string>
     <string name="notifications">การแจ้งเตือน</string>
+    <string name="notificationCreate">การแจ้งเตือน > สร้างการแจ้งเตือน</string>
+
     <string name="settings">ตั้งค่า</string>
     <string name="review">ทบทวน</string>
     <string name="category">ประเภท: </string>
@@ -21,8 +27,66 @@
     <string name="sat">ส.</string>
     <string name="sun">อา.</string>
 
+    <string name="create">เพิ่ม</string>
+    <string name="cancel">ยกเลิก</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+<!--    Create Deck-->
+    <string name="createDeck">สร้างสำรับไพ่ใหม่ ...</string>
+    <string name="deckName_textview">ชื่อสำรับไพ่</string>
+    <string name="description_textview">รายละเอียด</string>
+    <string name="category_textview">ประเภท</string>
+
+<!--    Create card-->
+    <string name="chooseDeck">เลือกสำรับไพ่ ...</string>
+    <string name="front">ด้านหน้า</string>
+    <string name="front_edittext">คำศัพท์</string>
+    <string name="back">ด้านหลัง</string>
+    <string name="back_edittext">ความหมายหรือคำอธิบาย</string>
+
+    <!--        Create Notification-->
+    <string name="setTime">ตั้งเวลา</string>
+    <string name="titleCreate">เลือกเวลาที่ต้องการเล่นเกม :)</string>
+    <string name="timetoset">12 . 30 นาฬิกา</string>
+    <string name="m">จ</string>
+    <string name="t">อ</string>
+    <string name="w">พ</string>
+    <string name="tu">พฤ</string>
+    <string name="f">ศ</string>
+    <string name="s">ส</string>
+    <string name="su">อา</string>
+
+
+    <!--        Edit Notification-->
+    <string name="editTime">แก้ไขเวลา</string>
+    <string name="editNotification_textview">แก้ไขการแจ้งเตือน</string>
+
+    <!--        Game-->
+    <string name="basicReview">ทบทวนแบบพื้นฐาน</string>
+    <string name="matchingGame">เกมจับคู่</string>
+    <string name="quiz">ควิซ</string>
+    <string name="yenchaGame">เกมเย็นชา</string>
+    <string name="skip">ข้าม</string>
+    <string name="flip">เปิดดูด้านหลัง</string>
+    <string name="reviewComplete">ทบทวนเสร็จสิ้น !</string>
+    <string name="correctAnswer"> จำนวนข้อที่ตอบถูก: </string>
+    <string name="incorrectAnswer">จำนวนข้อที่ตอบผิด: </string>
+    <string name="done">ปิด</string>
+
+
+    <!--    Hour Min Text-->
+    <string name="hr">ชั่วโมง</string>
+    <string name="min">นาที</string>
+
+    <!--    Statistics-->
+    <string name="overall">โดยรวม</string>
+    <string name="grades">เกรดทั้งหมด</string>
+    <string name="mostreview">สำรับที่ทบทวนมากที่สุด</string>
+
+    <!--    Dialog-->
+    <string name="addCate">เพิ่ม</string>
+    <string name="enterCate">กรุณาใส่ชื่อประเภทที่ต้องการเพิ่ม</string>
+
+
 
 </resources>

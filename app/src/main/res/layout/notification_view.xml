@@ -1,43 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_height="100dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/time_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Title"
-            android:id="@+id/notiTitle"
-            />
-        <Switch
-            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="9.00 น."
+            android:textColor="@color/colorBlack"
+            android:textSize="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/isActive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:switchMinWidth="56dp"
+            android:layout_marginEnd="20dp"
             android:checked="true"
-            android:textOff="OFF"
-            android:textOn="ON"/>
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="@+id/time_textview"
+            app:layout_constraintEnd_toEndOf="@+id/time_textview" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@id/isActive"
-            android:id="@+id/line"
-            android:background="@android:color/darker_gray"/>
 
-        <ListView
-            android:id="@+id/timeListView"
-            android:layout_below="@id/notiTitle"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/noti_textview"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            ></ListView>
+            android:layout_marginStart="20dp"
+            android:text="Vocab"
+            android:textColor="@color/colorBlack"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/time_textview" />
 
-    </RelativeLayout>
 
-
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
