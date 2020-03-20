@@ -10,19 +10,19 @@ Simply flashcard games android application for boost your memory !!
 ## Details
 
 > **games for memorization** :video_game:
-- Matching game
-- Selection game
-- Others (in advance .....)
+- [ ] Matching game
+- [ ] Quiz game
+- [ ] Others (in advance .....)
 > **techniques for memorization** :memo:
-- Audio records
-- Basic technique
+- [ ] Audio records
+- [ ] Basic technique
 
 ## Functions
 
 > **Input Specifications**
-- Add decks and cards :clubs:
-- Select a deck -> Select a game/technique ->  Enjoy !! :video_game:
-- Add notifications for each deck (depends on user) :bell:
+- [x] Add decks and cards :clubs:
+- [ ] Select a deck -> Select a game/technique ->  Enjoy !! :video_game:
+- [x] Add notifications for each deck (depends on user) :bell:
 
 > **Output Secifications** 
 - Show result (score from play game/technique that you picked)
