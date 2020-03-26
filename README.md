@@ -10,12 +10,10 @@ Simply flashcard games android application for boost your memory !!
 ## Details
 
 > **games for memorization** :video_game:
-- [ ] Matching game
-- [ ] Quiz game
-- [ ] Yen-cha game
-- [ ] Others (in advance .....)
+- [x] Matching game
+- [x] Quiz game
+- [x] Yen-cha game
 > **techniques for memorization** :memo:
-- [ ] Audio records
 - [x] Basic technique
 
 ## Functions
@@ -28,5 +26,10 @@ Simply flashcard games android application for boost your memory !!
 > **Output Secifications** 
 - [x] Show result (score from play game/technique that you picked)
 - [x] Show statistics for each deck :bar_chart:
+
+
+> **Others**
+
+- [ ] แยมเลือกสี เลือกเสียงมาใส่โปรเจค
 
 
