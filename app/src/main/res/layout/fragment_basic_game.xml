@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.boostmem.BasicGameFragment"
+    >
+
+    <data>
+
+        <variable
+            name="game"
+            type="com.example.boostmem.BasicGameFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@{game.now}"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@{game.currentQuestion.frontDesp}"
+            android:textSize="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.45" />
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="30dp"
+
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView3">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/easy"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="#cdd885"
+                app:layout_constraintEnd_toStartOf="@+id/good"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:srcCompat="@drawable/ic_sentiment_very_satisfied" />
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/good"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="#dbc557"
+                app:layout_constraintEnd_toStartOf="@+id/average"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/easy"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:srcCompat="@drawable/ic_sentiment_satisfied_alt" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/average"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="#f7c45f"
+
+                app:layout_constraintEnd_toStartOf="@+id/bad"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/good"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:srcCompat="@drawable/ic_sentiment_satisfied" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/bad"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="#ff9d60"
+
+                app:layout_constraintEnd_toStartOf="@+id/fail"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/average"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:srcCompat="@drawable/ic_sentiment_dissatisfied" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fail"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#d65353"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bad"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:srcCompat="@drawable/ic_sentiment_very_dissatisfied" />
+
+        </RadioGroup>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/flipButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/flip"
+            android:textColor="@color/colorSkipFlip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/skipButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/skipButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/skip"
+            android:textColor="@color/colorSkipFlip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/flipButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</layout>

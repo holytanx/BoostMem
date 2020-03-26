@@ -70,7 +70,7 @@
     <string name="flip">เปิดดูด้านหลัง</string>
     <string name="reviewComplete">ทบทวนเสร็จสิ้น !</string>
     <string name="correctAnswer"> จำนวนข้อที่ตอบถูก: </string>
-    <string name="incorrectAnswer">จำนวนข้อที่ตอบผิด: </string>
+    <string name="incorrectAnswer">จำนวนครั้งที่ตอบผิด: </string>
     <string name="done">ปิด</string>
 
 
@@ -82,11 +82,16 @@
     <string name="overall">โดยรวม</string>
     <string name="grades">เกรดทั้งหมด</string>
     <string name="mostreview">สำรับที่ทบทวนมากที่สุด</string>
+    <string name="labelDeck">ชื่อสำรับไพ่</string>
 
     <!--    Dialog-->
     <string name="addCate">เพิ่ม</string>
     <string name="enterCate">กรุณาใส่ชื่อประเภทที่ต้องการเพิ่ม</string>
-
+    <string name="reviewToday">จำนวนไพ่ที่ทบทวนวันนี้:</string>
+    <string name="title_score">ทบทวนแบบพื้นฐาน</string>
+    <string name="gameOver">เกมโอเวอร์</string>
+    <string name="tryAgain">เล่นใหม่</string>
+    <string name="chance">โอกาสผิดพลาด: </string>
 
 
 </resources>

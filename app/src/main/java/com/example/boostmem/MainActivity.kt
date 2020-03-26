@@ -1,9 +1,6 @@
 package com.example.boostmem
 
-import android.app.Activity
-import android.app.AlarmManager
-import android.app.Notification
-import android.app.PendingIntent
+import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -11,6 +8,7 @@ import android.os.Bundle
 import android.os.SystemClock
 import android.util.Log
 import android.view.View
+import android.view.Window
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -18,15 +16,20 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
 import com.example.boostmem.Adapter.DeckRecyclerAdapter
+import com.example.boostmem.Adapter.GamesPagerAdapter
 import com.example.boostmem.Adapter.OnDeckItemClickListener
 import com.example.boostmem.Card.CardManagement
 import com.example.boostmem.Database.Models.Deck
+import com.example.boostmem.Database.Models.Statistic
 import com.example.boostmem.Deck.CreateDeck
 import com.example.boostmem.Games.Games
 import com.example.boostmem.Notification.Notifications
 import com.example.boostmem.Notification.NotificationBroadcast
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import me.relex.circleindicator.CircleIndicator
+import org.jetbrains.anko.layoutInflater
 import java.time.LocalDateTime
 import java.util.*
 
@@ -61,31 +64,10 @@ class MainActivity : AppCompatActivity(), OnDeckItemClickListener {
         var today = LocalDateTime.now()
         val calNow = Calendar.getInstance()
 
-//        if(calSet.compareTo(calNow) > 0){
-//            println("Hello")
-//        }
+
         Log.d("today",today.dayOfWeek.toString().toLowerCase())
 
-//        deckViewModel.allNoti.observe(this, Observer {
-//            var notifications = it.filter { it.dayList!!.contains(today.dayOfWeek.toString().toLowerCase()) }
-//            Log.d("today","${notifications.size}")
-//            for (noti in notifications){
-//                val calSet = calNow.clone() as Calendar
-//                val hr = noti.time.split(":")[0]
-//                val m = noti.time.split(":")[1]
-//                val hr_white: String = hr.trim()
-//                val m_white: String = m.trim()
-//                calSet.set(Calendar.HOUR_OF_DAY,hr_white.toInt())
-//                calSet.set(Calendar.MINUTE,m_white.toInt())
-//                if(calSet.compareTo(calNow) > 0){
-//                    getNotification(noti.deckName)?.let { it1 -> scheduleNotification(it1, (calSet.timeInMillis - calNow.timeInMillis)) }
-//                    Log.d("alarm","${noti.notificationID} , ${noti.time}")
-//                }else{
-//                    Log.d("can'talarm","${noti.notificationID}")
-//
-//                }
-//            }
-//        })
+
 
         //Bottom navigation
             bottomNav.selectedItemId = R.id.Home
@@ -152,10 +134,11 @@ class MainActivity : AppCompatActivity(), OnDeckItemClickListener {
 
 
 
-    fun selectGames(view: View){
-        val intent = Intent(this, Games::class.java)
-        startActivity(intent)
-    }
+//    fun selectGames(view: View){
+//        val intent = Intent(this, Games::class.java)
+//
+//        startActivity(intent)
+//    }
 
     fun createnewDeck(view: View){
         val intent = Intent(this, CreateDeck::class.java)
@@ -167,9 +150,10 @@ class MainActivity : AppCompatActivity(), OnDeckItemClickListener {
         if (requestCode == newDeckActivityRequestCode && resultCode == Activity.RESULT_OK) {
             intentData?.let { data ->
 
-                    val deck = data.getSerializableExtra(CreateDeck.EXTRA_REPLY) as? Deck
-                    Toast.makeText(applicationContext,deck!!.description,Toast.LENGTH_LONG).show()
-                    deckViewModel.insert(deck)
+                    val list = data.getSerializableExtra(CreateDeck.EXTRA_REPLY) as? Deck
+                    Toast.makeText(applicationContext, list.toString(),Toast.LENGTH_LONG).show()
+                    deckViewModel.insert(list!!)
+//                    deckViewModel.insert(statistic = Statistic(0,list.deckID,0f,0))
             }
         } else {
             Toast.makeText(
@@ -189,9 +173,16 @@ class MainActivity : AppCompatActivity(), OnDeckItemClickListener {
     }
     companion object {
         const val MANAGEMENT = "com.example.boostmem.MANAGEMENT"
+        const val PLAYGAME = "com.example.boostmem.Games"
     }
 
 
+    override fun onGameClick(item: Deck, position: Int) {
+//        Toast.makeText(this,"You clicked : ${item.deckName}",Toast.LENGTH_LONG).show()
+        val intent = Intent(applicationContext,Games::class.java)
+        intent.putExtra(PLAYGAME,item)
+        startActivity(intent)
+    }
 
 
 

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Games.PlayCompleteFragment"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <cdflynn.android.library.checkview.CheckView
+            android:id="@+id/check"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:checkView_strokeColor="@color/green"
+            app:checkView_strokeWidth="@dimen/subLabelSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.19999999" />
+
+        <TextView
+            android:id="@+id/reviewComplete_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reviewComplete"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/marginStartEndDefault"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/check"
+            app:layout_constraintVertical_bias="0.19999999" />
+
+        <TextView
+            android:id="@+id/correctAnswers_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/correctAnswer"
+            android:textColor="@color/green"
+            app:layout_constraintBottom_toTopOf="@+id/incorrectAnswers_textview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reviewComplete_label"
+            app:layout_constraintVertical_bias="0.19999999"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/incorrectAnswers_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/incorrectAnswer"
+            android:textColor="@color/colorCancel"
+            app:layout_constraintBottom_toTopOf="@+id/check"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/correctAnswers_textview" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/done_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            style="@style/Widget.MaterialComponents.Button"
+            app:backgroundTint="@color/redButton"
+            android:text="@string/done"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/incorrectAnswers_textview" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

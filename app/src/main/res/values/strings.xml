@@ -83,11 +83,21 @@
     <string name="overall">Overall</string>
     <string name="mostreview">Most reviewed decks</string>
     <string name="grades">Grades</string>
+    <string name="labelDeck">Deck name</string>
 
 
     <!--    Dialog-->
     <string name="addCate">Add</string>
     <string name="enterCate">Enter category name...</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="reviewToday">Review today:</string>
+    <string name="title_score">Basic Review</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="gameOver">Game Over</string>
+    <string name="tryAgain">Try again</string>
+    <string name="chance">Chance: </string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

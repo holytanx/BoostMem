@@ -1,77 +1,57 @@
 package com.example.boostmem.Games
 
-import android.content.Intent
+import android.R.attr.key
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import com.example.boostmem.Database.Models.Deck
 import com.example.boostmem.R
-import kotlinx.android.synthetic.main.fragment_single.view.*
+import com.example.boostmem.databinding.FragmentSingleBinding
+import kotlin.properties.Delegates
 
 
-class SingleFragment : Fragment() {
+class SingleFragment : Fragment(), View.OnClickListener{
 
-    companion object {
-        fun newInstance() = SingleFragment()
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        retainInstance =true
-    }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-//        initRecyclerView()
-//        addData()
-    }
-
+    lateinit var navController: NavController
+    lateinit var binding : FragmentSingleBinding
+    lateinit var deck: Deck
+    var num = 0
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+         binding = DataBindingUtil.inflate<FragmentSingleBinding>(inflater,R.layout.fragment_single,container,false)
+         deck = (activity as Games).deck
 
-        val view : View = inflater!!.inflate(R.layout.fragment_single, container, false)
 
-        lateinit var intent : Intent
+        return binding.root
+    }
 
-        view.basicReview_button.setOnClickListener{view ->
-            intent = Intent(activity, BasicReview::class.java)
-            startActivity(intent)
-        }
-        view.quiz_button.setOnClickListener { view ->
-            intent = Intent(activity, Quiz::class.java)
-            startActivity(intent)
-        }
-        view.match_button.setOnClickListener { view ->
-            intent = Intent(activity, MatchingGame::class.java)
-            startActivity(intent)
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        navController = Navigation.findNavController(view)
 
-        return view
-
+        binding.basicReviewButton.setOnClickListener(this)
+        binding.matchButton.setOnClickListener(this)
+        binding.quizButton.setOnClickListener(this)
 
     }
 
-
-
-//    private fun addData() {
-//        val data = DataExample1.createSingleGames()
-//
-//        Log.i("Size",data.size.toString())
-//        gamesAdapter.submitList(data)
-//    }
-
-//    private fun initRecyclerView() {
-//        single_recyclerView.apply {
-//            layoutManager = LinearLayoutManager(activity)
-//            gamesAdapter = GameRecyclerAdapter()
-//            adapter = gamesAdapter
-//        }
-//    }
-
+    override fun onClick(v: View?) {
+        when(v!!){
+            binding.basicReviewButton -> navController.navigate(GamesFragmentDirections.actionGamesFragmentToBasicFragment(deck))
+            binding.matchButton -> navController.navigate(GamesFragmentDirections.actionGamesFragmentToMatchingGameFragment(deck))
+            binding.quizButton -> navController.navigate(GamesFragmentDirections.actionGamesFragmentToQuizFragment(deck))
+        }
+    }
 
 
 

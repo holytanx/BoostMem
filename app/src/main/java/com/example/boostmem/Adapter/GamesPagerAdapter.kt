@@ -8,11 +8,7 @@ class GamesPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAd
         private val fragmentList : MutableList<Fragment> = ArrayList()
         override fun getItem(position: Int): Fragment {
             return fragmentList[position]
-    //        return  when (position){
-    //            1 -> SingleFragment.newInstance()
-    //            2 -> MultiFragment.newInstance()
-    //            else -> SingleFragment.newInstance()
-    //        }
+
         }
 
         override fun getCount(): Int {
@@ -24,5 +20,4 @@ class GamesPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAd
 
         }
 
-    //(fragmentManager: FragmentManager): FragmentPagerAdapter(fragmentManager){
 }

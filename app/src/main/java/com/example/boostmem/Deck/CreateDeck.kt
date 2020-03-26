@@ -12,19 +12,16 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
 import com.example.boostmem.Database.Models.Category
 import com.example.boostmem.Database.Models.Deck
+import com.example.boostmem.Database.Models.Statistic
 import com.example.boostmem.DeckViewModel
 import com.example.boostmem.MainActivity
 import com.example.boostmem.R
 import kotlinx.android.synthetic.main.activity_create_deck.*
 import kotlinx.android.synthetic.main.add_cate_dialog.view.*
-import org.jetbrains.anko.sdk25.coroutines.onItemSelectedListener
-import java.lang.StringBuilder
 
 
 class CreateDeck : AppCompatActivity() {
@@ -92,6 +89,8 @@ class CreateDeck : AppCompatActivity() {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
                 val deck = Deck(0,deckName, selectedCate, deckDescription)
+                val statistic = Statistic(0,deck.deckID,0f,0)
+                val list: ArrayList<Any> = arrayListOf()
                 replyIntent.putExtra(EXTRA_REPLY, deck )
                 Log.d("added","ID: ${deck.deckID} Name: ${deck.deckName} CategoryID: ${deck.cateID}")
                 setResult(Activity.RESULT_OK, replyIntent)
@@ -142,6 +141,7 @@ class CreateDeck : AppCompatActivity() {
 
     companion object {
         const val EXTRA_REPLY = "com.example.roombbdd.REPLY"
+        const val EXTRA_REPLY1 ="com.example.roombbdd.REPLY1"
     }
 
 

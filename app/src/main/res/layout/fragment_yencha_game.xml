@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.boostmem.YenchaGameFragment">
+    <data>
+
+        <variable
+            name="game"
+            type="com.example.boostmem.YenchaGameFragment" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:id="@+id/parentLayout"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/countdown_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="10"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/question_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{game.currentQuestion.frontDesp}"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/countdown_textview"
+            app:layout_constraintVertical_bias="0.41000003" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

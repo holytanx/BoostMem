@@ -3,29 +3,34 @@ package com.example.boostmem
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.boostmem.Adapter.GradesRecyclerView
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.example.boostmem.DataExample.DataExample5
+import com.example.boostmem.Database.Models.Deck
+import com.example.boostmem.Database.Models.Statistic
 import com.github.mikephil.charting.charts.HorizontalBarChart
 import com.github.mikephil.charting.components.Description
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
-import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import kotlinx.android.synthetic.main.fragment_grades.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class GradesFragment : Fragment() {
-    lateinit var gradeAdapter : GradesRecyclerView
     lateinit var mChart: HorizontalBarChart
+    lateinit var deckViewModel: DeckViewModel
+    var MY_COLORS2 = mutableListOf<Int>()
+    var list = mutableListOf<Statistic>()
+    var deckName = mutableListOf<Deck>()
+
     val data = DataExample5.createStatistic()
 
     override fun onCreateView(
@@ -33,21 +38,28 @@ class GradesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_grades, container, false)
+        for(n in 1..20){
+            val ran = Random()
+            MY_COLORS2.add(Color.argb(255, ran.nextInt(256), ran.nextInt(256), ran.nextInt(256)))
+        }
+        deckViewModel = ViewModelProviders.of(this).get(DeckViewModel::class.java)
+        val y = deckViewModel.allDecks.observe(viewLifecycleOwner, Observer <List<Deck>>{
+            deckName = it.toMutableList()
+            val x = deckViewModel.allStatistic.observe(viewLifecycleOwner,Observer<List<Statistic>>{
+                list = it.toMutableList()
+                setGradeGraph(list,deckName)
+            })
+        })
 
+        return inflater.inflate(R.layout.fragment_grades, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-
-        setGradeGraph()
-
-//        initRecyclerView()
-//        addData()
-
-
     }
 
-    private fun setGradeGraph() {
+    private fun setGradeGraph(
+        statistics: MutableList<Statistic>,
+        deckName: MutableList<Deck>
+    ) {
         mChart = grade_chart
         mChart.setDrawBarShadow(false)
         val description = Description()
@@ -68,14 +80,14 @@ class GradesFragment : Fragment() {
         yLeft.axisMinimum = 0f
         yLeft.isEnabled = false
 
-        xAxis.setLabelCount(4)
+        xAxis.setLabelCount(statistics.count())
 
+        val entries = ArrayList<BarEntry>()
         val xAxisLabel: ArrayList<String> = ArrayList()
-        xAxisLabel.add("Linux Commands")
-        xAxisLabel.add("Chemistry")
-        xAxisLabel.add("History II")
-        xAxisLabel.add("Vocabulary Eng Set 1")
-
+        for((index,values) in statistics.withIndex()){
+            xAxisLabel.add(deckName[index.toInt()].deckName)
+            entries.add(BarEntry(index.toFloat(),values.average))
+        }
 
 
         mChart.xAxis.valueFormatter = IndexAxisValueFormatter(xAxisLabel)
@@ -87,31 +99,9 @@ class GradesFragment : Fragment() {
         yRight.setDrawGridLines(false)
         yRight.isEnabled = false
 
-        setData(data.size,100)
-        mChart.animateY(2000)
-
-
-    }
-
-
-    private fun setData(size: Int, i: Int) {
-
-        val entries = ArrayList<BarEntry>()
-        entries.add(BarEntry(0f, 27f))
-        entries.add(BarEntry(1f, 45f))
-        entries.add(BarEntry(2f, 65f))
-        entries.add(BarEntry(3f, 77f))
-
-        val barDataSet = BarDataSet(entries, "Grades")
+        val barDataSet = BarDataSet(entries, getString(R.string.labelDeck))
         barDataSet.setColors(
-//            ContextCompat.getColor(mChart.context, R.color.redButton),
-//            ContextCompat.getColor(mChart.context, R.color.green),
-//            ContextCompat.getColor(mChart.context, R.color.blueButton),
-//            ContextCompat.getColor(mChart.context, R.color.yellowButton)
-            Color.rgb(192, 0, 0),
-            Color.rgb(146, 208, 80),
-            Color.rgb(0, 176, 80),
-            Color.rgb(79, 129, 189)
+            MY_COLORS2
         )
         mChart.setDrawBarShadow(true)
         barDataSet.barShadowColor = Color.argb(40, 150, 150, 150)
@@ -119,24 +109,11 @@ class GradesFragment : Fragment() {
         data.barWidth = 0.9f
         mChart.data = data
         mChart.invalidate()
+        mChart.animateY(2000)
 
 
     }
 
-//    private fun addData() {
-//        val data = DataExample5.createStatistic()
-//
-//        Log.i("Size",data.size.toString())
-//        gradeAdapter.submitList(data)
-//    }
-
-//    private fun initRecyclerView() {
-//        grades_recyclerView.apply {
-//            layoutManager = LinearLayoutManager(activity)
-//            gradeAdapter = GradesRecyclerView()
-//            adapter = gradeAdapter
-//        }
-//    }
 
 
 }

@@ -12,6 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
+import com.example.boostmem.Adapter.MatchingGameRectyclerBackAdapter
 import com.example.boostmem.Database.Models.Card
 import kotlinx.android.synthetic.main.card_management_view.view.*
 import kotlinx.android.synthetic.main.deck_view.view.*
@@ -60,7 +61,7 @@ class CardRecyclerAdapter internal constructor(context: Context, application: Ap
 
 }
 
-interface OnCardItemClickListener{
+interface OnCardItemClickListener {
     fun onItemClick(item: Card, position: Int)
 
 }

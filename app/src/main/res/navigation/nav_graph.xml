@@ -3,24 +3,127 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/createDeckFragment">
+    app:startDestination="@id/gamesFragment"
+
+   >
+
 
     <fragment
-        android:id="@+id/createDeckFragment"
-        android:name="com.example.boostmem.Deck.CreateDeckFragment"
-        android:label="actionCreatedeck"
-        tools:layout="@layout/fragment_create_deck" >
+        android:id="@+id/gamesFragment"
+        android:name="com.example.boostmem.Games.GamesFragment"
+        android:label="gamesFragment"
+        tools:layout="@layout/fragment_games">
         <action
-            android:id="@+id/action_createDeckFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_gamesFragment_to_basicFragment"
+            app:destination="@id/basicFragment" />
+        <action
+            android:id="@+id/action_gamesFragment_to_matchingGameFragment"
+            app:destination="@id/matchingGameFragment" />
+        <action
+            android:id="@+id/action_gamesFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_gamesFragment_to_yenchaGameFragment"
+            app:destination="@id/yenchaGameFragment" />
+
+    </fragment>
+<fragment
+        android:id="@+id/basicFragment"
+        android:name="com.example.boostmem.BasicGameFragment"
+        android:label="basicFragment"
+        tools:layout="@layout/fragment_basic_game">
+    <action
+        android:id="@+id/action_basicFragment_to_reviewCompleteFragment"
+        app:destination="@id/reviewCompleteFragment" />
+    <argument
+        android:name="deck"
+        app:argType="com.example.boostmem.Database.Models.Deck" />
+</fragment>
+    <fragment
+        android:id="@+id/reviewCompleteFragment"
+        android:name="com.example.boostmem.Games.ReviewCompleteFragment"
+        android:label="reviewCompleteFragment"
+        tools:layout="@layout/fragment_review_complete">
+        <argument
+            android:name="numQuestion"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/matchingGameFragment"
+        android:name="com.example.boostmem.MatchingGameFragment"
+        android:label="matchingGameFragment"
+        tools:layout="@layout/fragment_matching_game">
+        <argument
+            android:name="deck"
+            app:argType="com.example.boostmem.Database.Models.Deck" />
+        <action
+            android:id="@+id/action_matchingGameFragment_to_playGameCompleteFragment"
+            app:destination="@id/playGameCompleteFragment" />
+        <action
+            android:id="@+id/action_matchingGameFragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/playGameCompleteFragment"
+        android:name="com.example.boostmem.Games.PlayCompleteFragment"
+        android:label="playGameCompleteFragment"
+        tools:layout="@layout/fragment_play_complete">
+        <argument
+            android:name="numIncorrects"
+            app:argType="integer" />
+        <argument
+            android:name="numCorrects"
+            app:argType="integer" />
     </fragment>
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.boostmem.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        android:id="@+id/gameOverFragment"
+        android:name="com.example.boostmem.Games.GameOverFragment"
+        android:label="gameOverFragment"
+        tools:layout="@layout/fragment_game_over">
+
+        <argument
+            android:name="deck"
+            app:argType="com.example.boostmem.Database.Models.Deck" />
         <action
-            android:id="@+id/action_homeFragment_to_createDeckFragment"
-            app:destination="@id/createDeckFragment" />
+            android:id="@+id/action_gameOverFragment_to_matchingGameFragment"
+            app:destination="@id/matchingGameFragment" />
+        <action
+            android:id="@+id/action_gameOverFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+        <argument
+            android:name="gameType"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.example.boostmem.QuizFragment"
+        android:label="quizFragment"
+        tools:layout="@layout/fragment_quiz">
+        <argument
+            android:name="deck"
+            app:argType="com.example.boostmem.Database.Models.Deck" />
+        <action
+            android:id="@+id/action_quizFragment_to_playGameCompleteFragment"
+            app:destination="@id/playGameCompleteFragment" />
+        <action
+            android:id="@+id/action_quizFragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/yenchaGameFragment"
+        android:name="com.example.boostmem.YenchaGameFragment"
+        android:label="yenchaGameFragment"
+        tools:layout="@layout/fragment_yencha_game">
+
+        <argument
+            android:name="deck"
+            app:argType="com.example.boostmem.Database.Models.Deck" />
+        <action
+            android:id="@+id/action_yenchaGameFragment_to_playGameCompleteFragment"
+            app:destination="@id/playGameCompleteFragment" />
     </fragment>
 </navigation>

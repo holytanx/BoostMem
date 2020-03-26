@@ -44,9 +44,6 @@ class DeckRecyclerAdapter internal constructor(context:Context,application: Appl
 
         })
 
-//        holder.title.text = current.deckName
-//        holder.category.text = ""
-//        holder.initialize(current,cateObject,this.clickListener)
     }
 
     override fun getItemCount() = decks.size
@@ -64,13 +61,16 @@ class DeckRecyclerAdapter internal constructor(context:Context,application: Appl
     inner class DeckViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var title = itemView.deckTitle
         var category = itemView.deckCategory
-
+        var button = itemView.reviewButton
         fun initialize(item :Deck,cateName:String?, action:OnDeckItemClickListener){
             title.text = item.deckName
             category.text = "Category: $cateName"
 
             itemView.setOnClickListener {
                 action.onItemClick(item,adapterPosition)
+            }
+            button.setOnClickListener {
+                action.onGameClick(item,adapterPosition)
             }
         }
 
@@ -85,5 +85,5 @@ class DeckRecyclerAdapter internal constructor(context:Context,application: Appl
 
 interface OnDeckItemClickListener{
     fun onItemClick(item:Deck, position: Int)
-
+    fun onGameClick(item:Deck,position: Int)
 }

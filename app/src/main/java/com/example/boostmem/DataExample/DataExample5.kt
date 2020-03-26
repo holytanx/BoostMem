@@ -7,8 +7,8 @@ class DataExample5 {
         fun createStatistic(): ArrayList<Statistic> {
             val statistics = ArrayList<Statistic>()
 
-           statistics.add(Statistic(1,1,5,6,7,8,9,10,22))
-            statistics.add(Statistic(2,2,5,6,7,8,9,10,22))
+           statistics.add(Statistic(1,1,80f,1))
+            statistics.add(Statistic(2,2,80f,2))
 
             return statistics
         }

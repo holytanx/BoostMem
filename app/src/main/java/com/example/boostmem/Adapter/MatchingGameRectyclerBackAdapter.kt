@@ -6,17 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.boostmem.Database.Models.Card
+import com.example.boostmem.OnCardItemClickListener
 import com.example.boostmem.R
 import kotlinx.android.synthetic.main.matchgame_view.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-
-class MatchingGameRecyclerAdapter( var clickListener: OnCardItemClickListener): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class MatchingGameRectyclerBackAdapter(var clickListener: OnCardItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     private var cards : ArrayList<Card> = ArrayList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return MatchingGameViewHolder (
+        return MatchingGameBackViewHolder (
             LayoutInflater.from(parent.context).inflate(R.layout.matchgame_view,parent,false)
         )
     }
@@ -27,7 +27,7 @@ class MatchingGameRecyclerAdapter( var clickListener: OnCardItemClickListener): 
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder){
-            is MatchingGameViewHolder -> (holder.bind(cards.get(position),this.clickListener))
+            is MatchingGameBackViewHolder -> (holder.bind(cards.get(position),this.clickListener))
         }
 
     }
@@ -35,25 +35,28 @@ class MatchingGameRecyclerAdapter( var clickListener: OnCardItemClickListener): 
         cards = cardset
     }
 
-    class MatchingGameViewHolder constructor(
+    class MatchingGameBackViewHolder constructor(
         itemView: View
-    ):RecyclerView.ViewHolder(itemView){
+    ): RecyclerView.ViewHolder(itemView){
 
         var textview = itemView.cardFrontorBack
 
         fun bind (string: Card,action:OnCardItemClickListener){
-            textview.text = string.frontDesp
+            textview.text = string.backDesp
             val rnd = Random()
             val currentColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
             itemView.setBackgroundColor(currentColor)
             itemView.setOnClickListener{
-                action.onItemClick(string,adapterPosition)
+                action.onItemClickFront(string,adapterPosition)
             }
         }
 
     }
+
     interface  OnCardItemClickListener{
-        fun onItemClick(item:Card, position: Int)
+        fun onItemClickFront(item:Card, position: Int)
+
 
     }
+
 }

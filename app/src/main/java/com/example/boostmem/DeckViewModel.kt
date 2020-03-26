@@ -4,13 +4,11 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.example.boostmem.Database.AppDatabase
-import com.example.boostmem.Database.Models.Card
-import com.example.boostmem.Database.Models.Category
-import com.example.boostmem.Database.Models.Deck
-import com.example.boostmem.Database.Models.NotificationModel
+import com.example.boostmem.Database.Models.*
 import com.example.boostmem.Database.Repository.CardRepository
 import com.example.boostmem.Database.Repository.CategoryRepository
 import com.example.boostmem.Database.Repository.NotiRepository
+import com.example.boostmem.Database.Repository.StatisticRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -27,15 +25,18 @@ class DeckViewModel(application: Application) : AndroidViewModel(application) {
     private val deckRepository: DeckRepository
     private val cardRepository:CardRepository
     private val notiRepository:NotiRepository
+    private val statisticRepository: StatisticRepository
     val allDecks : LiveData<List<Deck>>
     val allCates : LiveData<List<Category>>
     val allCards : LiveData<List<Card>>
     val allNoti : LiveData<List<NotificationModel>>
+    val allStatistic: LiveData<List<Statistic>>
     init {
         val decksDao = AppDatabase.getDatabase(application, scope).deckDao()
         val catesDao = AppDatabase.getDatabase(application,scope).cateDao()
         val cardDao = AppDatabase.getDatabase(application,scope).cardDao()
         val notiDao = AppDatabase.getDatabase(application,scope).notiDao()
+        val statisticDao = AppDatabase.getDatabase(application,scope).statisticDao()
 
         deckRepository = DeckRepository(decksDao)
         allDecks = deckRepository.allDecks
@@ -45,6 +46,8 @@ class DeckViewModel(application: Application) : AndroidViewModel(application) {
         allCards = cardRepository.allCards
         notiRepository = NotiRepository(notiDao)
         allNoti = notiRepository.allNoti
+        statisticRepository = StatisticRepository(statisticDao)
+        allStatistic = statisticRepository.allStatistics
     }
 
     fun insert(deck: Deck) = scope.launch(Dispatchers.IO) {
@@ -58,6 +61,9 @@ class DeckViewModel(application: Application) : AndroidViewModel(application) {
     }
     fun insert(notificationModel: NotificationModel) = scope.launch ( Dispatchers.IO ){
         notiRepository.insert(notificationModel)
+    }
+    fun insert(statistic: Statistic) = scope.launch ( Dispatchers.IO ){
+        statisticRepository.insert(statistic)
     }
     override fun onCleared() {
         super.onCleared()
@@ -77,6 +83,9 @@ class DeckViewModel(application: Application) : AndroidViewModel(application) {
     fun deleteNoti(notificationModel: NotificationModel){
         notiRepository.deleteNoti(notificationModel)
     }
+    fun deleteStatistic(statistic: Statistic){
+        statisticRepository.deleteStatistic(statistic)
+    }
 
     fun updateDeck(deck: Deck) {
         deckRepository.update(deck)
@@ -86,6 +95,9 @@ class DeckViewModel(application: Application) : AndroidViewModel(application) {
     }
     fun updateNoti(notificationModel: NotificationModel){
         notiRepository.update(notificationModel)
+    }
+    fun updateStatistic(statistic: Statistic){
+        statisticRepository.update(statistic)
     }
 
     fun updateIsActiveNoti(myTaskParams: NotiRepository.MyTaskParams){

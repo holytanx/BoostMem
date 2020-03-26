@@ -3,18 +3,15 @@ package com.example.boostmem.Database
 import android.content.Context
 import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.boostmem.Database.Dao.CardDao
-import com.example.boostmem.Database.Dao.CategoryDao
-import com.example.boostmem.Database.Dao.DeckDao
-import com.example.boostmem.Database.Dao.NotiDao
+import com.example.boostmem.Database.Dao.*
 import com.example.boostmem.Database.Models.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 //Card::class, NotificationModel::class, Statistic::class
 @Database(
-    entities = [Deck::class,Category::class,Card::class,NotificationModel::class],
-    version = 12
+    entities = [Deck::class,Category::class,Card::class,NotificationModel::class,Statistic::class],
+    version = 5
 )
 @TypeConverters(Converter::class)
 
@@ -23,6 +20,7 @@ abstract class AppDatabase: RoomDatabase() {
     abstract fun cateDao(): CategoryDao
     abstract fun cardDao(): CardDao
     abstract fun notiDao(): NotiDao
+    abstract fun statisticDao(): StatisticDao
 
     companion object {
         @Volatile

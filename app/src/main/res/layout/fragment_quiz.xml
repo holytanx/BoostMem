@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".QuizFragment">
+
+    <data>
+
+        <variable
+            name="game"
+            type="com.example.boostmem.QuizFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="1/2"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.25"
+            android:text="@{game.currentQuestion.backDesp}"
+            android:textSize="20dp"
+            />
+
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question">
+
+            <Button
+                android:id="@+id/firstAnswerButton"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
+                android:text="@{game.answerList.get(0).frontDesp}"
+                android:shadowColor="@color/colorBlack"
+                android:shadowDx="1.3"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                />
+            <Button
+                android:id="@+id/secondAnswerButton"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
+                android:shadowDx="1.3"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:text="@{game.answerList.get(1).frontDesp}"
+                android:shadowColor="@color/colorBlack"
+
+                />
+            <Button
+                android:id="@+id/thirdAnswerButton"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
+                android:shadowDx="1.3"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:shadowColor="@color/colorBlack"
+
+                android:text='@{game.answerList.size() >=3 ? game.answerList.get(2).frontDesp : "" }'
+                />
+            <Button
+                android:id="@+id/fourthAnswerButton"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:shadowColor="@color/colorBlack"
+                android:textColor="@color/white"
+                android:layout_marginBottom="10dp"
+                android:shadowDx="1.3"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                app:strokeWidth="2dp"
+                android:text='@{game.answerList.size() >= 4 ? game.answerList.get(3).frontDesp : "" }'
+                />
+        </RadioGroup>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/flipButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/flip"
+            android:textColor="@color/colorSkipFlip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/skipButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/skipButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/skip"
+            android:textColor="@color/colorSkipFlip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/flipButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

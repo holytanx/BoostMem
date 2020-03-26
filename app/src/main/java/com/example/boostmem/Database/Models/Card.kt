@@ -17,4 +17,4 @@ data class Card(
     @ColumnInfo  var frontDesp: String,
     @ColumnInfo var backDesp: String,
     @ColumnInfo var color: Int
-    ): Serializable
+    ):Serializable
