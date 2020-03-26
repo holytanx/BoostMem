@@ -1,22 +1,21 @@
-# BoostMem APP-mdev05
+# BoostMem APP
 
-Simply flashcard games android application for boost your memory !! 
+แอพลิเคชันสำหรับทบทวนความจำซึ่งมีแนวคิดมาจากแอพลิเคชัน Anki และ Flashcards โดยเพิ่มเกมและเทคนิคต่างๆที่ช่วยเสริมสร้างความจำให้กับผู้เล่นหรือผู้ที่ต้องการทบทวนความรู้   
 
-## Members in this project
+## สมาชิก
 - Tanyarat Tadchomuang 603040845-8
 - Thitichaya Sukho 603040546-8
 
 
-## Details
-
-> **games for memorization** :video_game:
+## รายละเอียด
+> **เกม** :video_game:
 - [x] Matching game
 - [x] Quiz game
 - [x] Yen-cha game
-> **techniques for memorization** :memo:
+> **เทคนิค** :memo:
 - [x] Basic technique
 
-## Functions
+## ฟังก์ชัน
 
 > **Input Specifications**
 - [x] Add decks and cards :clubs:
